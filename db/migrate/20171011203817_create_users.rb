@@ -8,6 +8,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :height
       t.string :home
       t.string :image_url
+      t.integer :park_id
 
       t.timestamps
     end

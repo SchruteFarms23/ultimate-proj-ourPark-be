@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20171011204654) do
     t.string "height"
     t.string "home"
     t.string "image_url"
+    t.integer "park_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
