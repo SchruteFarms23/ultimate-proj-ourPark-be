@@ -1,11 +1,18 @@
 class UsersController < ApplicationController
-  skip_before_action :authorized, only: [:create,:update]
+  skip_before_action :authorized, only: [:create,:update,:show,:destroy]
   def create
     user = User.new(name: params[:name],email: params[:email],password: params[:password],weight: params[:weight],height: params[:height],image_url: params[:image_url] )
     if user.save
       token = encode_token({user_id: user.id})
-      render json: {user:user, jwt: token}
+      render json: {user:user, jwt: token}, status:200
     else
+    end
+  end
+
+  def show
+    user = User.find(params[:id])
+    if user
+      render json:{player:user}, status:200
     end
   end
 
@@ -14,11 +21,19 @@ class UsersController < ApplicationController
     @park = Park.find(params[:park_id])
     if !@user.park
       @park.users << @user
-      render json: {user: @user}
+      render json: {user: @user}, status:200
     else
       render json: {errors: "Yo my dude you already at a park who you tryna fool fam"}
     end
   end
+
+  def destroy
+    user = User.find(params[:user_id])
+    park = Park.find(params[:park_id])
+    park.users.delete(user)
+    user= User.find(params[:user_id])
+    render json: {user:user}, status:200
+end
   # private
   #
   # def user_params
