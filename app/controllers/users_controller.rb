@@ -6,6 +6,7 @@ class UsersController < ApplicationController
       token = encode_token({user_id: user.id})
       render json: {user:user, jwt: token}, status:200
     else
+      render json: {message:"Wrong Password or email"}
     end
   end
 
@@ -23,7 +24,7 @@ class UsersController < ApplicationController
       @park.users << @user
       render json: {user: @user}, status:200
     else
-      render json: {errors: "Yo my dude you already at a park who you tryna fool fam"}
+      render json: {user: @user, errors: "Yo my dude you already at a park who you tryna fool fam"}
     end
   end
 
