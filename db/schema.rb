@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171011204654) do
+ActiveRecord::Schema.define(version: 20171020031606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "games", force: :cascade do |t|
+    t.integer "park_id"
+    t.datetime "date"
+    t.string "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "parks", force: :cascade do |t|
     t.string "name"
@@ -21,6 +29,24 @@ ActiveRecord::Schema.define(version: 20171011204654) do
     t.float "lat"
     t.float "long"
     t.string "borough"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stats", force: :cascade do |t|
+    t.integer "points"
+    t.integer "assists"
+    t.integer "rebounds"
+    t.integer "blocks"
+    t.integer "steals"
+    t.integer "user_id"
+    t.integer "game_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.integer "game_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -36,6 +62,7 @@ ActiveRecord::Schema.define(version: 20171011204654) do
     t.integer "park_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "team_id"
   end
 
 end

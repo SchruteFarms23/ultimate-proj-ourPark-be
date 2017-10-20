@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :parks
+  resources :teams
+  resources :games
+  resources :parks, :stats
   resources :users, :except => [:update,:destroy]
   patch 'users/add', to: 'users#update'
   delete 'users/delete', to: 'users#destroy'

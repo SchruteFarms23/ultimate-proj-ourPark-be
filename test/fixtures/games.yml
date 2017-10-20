@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  park_id: 1
+  date: 2017-10-19 22:00:01
+  score: MyString
+
+two:
+  park_id: 1
+  date: 2017-10-19 22:00:01
+  score: MyString
