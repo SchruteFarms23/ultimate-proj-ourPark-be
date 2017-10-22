@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   resources :teams
-  resources :games
-  resources :parks, :stats
+  resources :parks
+  resources :stats
   resources :users, :except => [:update,:destroy]
   patch 'users/add', to: 'users#update'
   delete 'users/delete', to: 'users#destroy'
   get '/welcome', to: 'application#welcome'
   post '/login', to: 'auth#create'
+
+  post '/games/active', to: 'games#active_games'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

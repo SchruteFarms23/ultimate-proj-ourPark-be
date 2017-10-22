@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20171020031606) do
     t.integer "park_id"
     t.datetime "date"
     t.string "score"
+    t.string "active", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
