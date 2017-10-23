@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :teams
+  resources :teams, :only => [:show]
+  post '/teams/adduser', to: 'teams#add_user'
   resources :parks
   resources :stats
   resources :users, :except => [:update,:destroy]
@@ -11,5 +12,6 @@ Rails.application.routes.draw do
   post '/games/create', to: 'games#create'
   post '/games/active', to: 'games#active_games'
   post '/games/pending', to: 'games#pending_games'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
