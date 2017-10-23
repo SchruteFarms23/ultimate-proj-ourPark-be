@@ -28,15 +28,15 @@ csv.each do |row|
 
 end
 
-Game.create(park_id:277, score:"21-16", active:"true")
-Game.create(park_id:550, score:"21-13", active:"true")
+Game.create(park_id:277, score:"21-16", active:"active")
+Game.create(park_id:550, score:"21-13", active:"active")
 Team.create(game_id:1)
 Team.create(game_id:1)
 Team.create(game_id:2)
 Team.create(game_id:2)
 User.create(name: "roman", email: "roman@aol.com", password: "test", weight: "140", height: "5'10", home: "Forest Hills", image_url: "https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/11990450_10153653107337148_4802946396570030581_n.jpg?oh=df3c6863f87954e3f6c91d415c7a0dec&oe=5A642C02",team_id:1, park_id:277)
-User.create(name: "daniel", email: "daniel@aol.com", password: "test", weight: "215", height: "6'2", home: "Forest Hills", image_url: "dog.png",team_id:1,park_id:277)
-User.create(name: "gianpaul", email: "gianpaul@aol.com", password: "test", weight: "215", height: "6'2", home: "Forest Hills", image_url: "dog.png",team_id:1,park_id:277)
+User.create(name: "daniel", email: "daniel@aol.com", password: "test", weight: "215", height: "6'2", home: "Forest Hills", image_url: "https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/10801674_10152832364004120_7388871342263016007_n.jpg?oh=e10c9590f58d8adcac09d7eb31abb2bb&oe=5A716267",team_id:1,park_id:277)
+User.create(name: "gianpaul", email: "gianpaul@aol.com", password: "test", weight: "215", height: "6'2", home: "Forest Hills", image_url: "https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/206588_2036677436402_7995511_n.jpg?oh=2ac900691b9aace75b66f9cad7172ab8&oe=5A657011",team_id:1,park_id:277)
 User.create(name: "luke", email: "luke@aol.com", password: "test", weight: "170", height: "5'8", home: "Forest Hills", image_url: "https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/12512627_10153561333048791_2832326256253546907_n.jpg?oh=53378d72b595a64863f76cfd3f7cd080&oe=5A86C4C7",team_id:2,park_id:277)
 User.create(name: "james", email: "james@aol.com", password: "test", weight: "150", height: "5'8", home: "Forest Hills", image_url: "dog.png",team_id:2,park_id:277)
 User.create(name: "hui", email: "hui@aol.com", password: "test", weight: "150", height: "5'9", home: "Forest Hills", image_url: "dog.png",team_id:2,park_id:277)

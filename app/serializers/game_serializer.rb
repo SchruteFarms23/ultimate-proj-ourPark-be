@@ -3,4 +3,5 @@ class GameSerializer < ActiveModel::Serializer
   belongs_to :park
   has_many :users, through: :teams
   has_many :stats
+  has_many :teams
 end

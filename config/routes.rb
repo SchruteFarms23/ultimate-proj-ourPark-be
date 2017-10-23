@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/welcome', to: 'application#welcome'
   post '/login', to: 'auth#create'
 
+  post '/games/create', to: 'games#create'
   post '/games/active', to: 'games#active_games'
+  post '/games/pending', to: 'games#pending_games'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

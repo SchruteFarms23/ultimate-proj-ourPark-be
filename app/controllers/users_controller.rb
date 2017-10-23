@@ -8,19 +8,19 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(name: params[:name],email: params[:email],password: params[:password],weight: params[:weight],height: params[:height],image_url: params[:image_url] )
-    if user.save
-      token = encode_token({user_id: user.id})
-      render json: {user:user, jwt: token}, status:200
+    @user = User.new(name: params[:name],email: params[:email],password: params[:password],weight: params[:weight],height: params[:height],image_url: params[:image_url] )
+    if @user.save
+      token = encode_token({user_id: @user.id})
+      render json: {user:@user, jwt: token}, status:200
     else
       render json: {message:"Wrong Password or email"}
     end
   end
 
   def show
-    user = User.find(params[:id])
-    if user
-      render json:{player:user}, status:200
+    @user = User.find(params[:id])
+    if @user
+      render json:@user, status:200
     end
   end
 

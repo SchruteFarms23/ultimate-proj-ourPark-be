@@ -4,7 +4,13 @@ class GamesController < ApplicationController
 
   def active_games
     @park = Park.find(params[:park_id])
-    @games = @park.games.where(active:"true")
+    @games = @park.games.where(active:"active")
+    render json: @games, status: 200
+  end
+
+  def pending_games
+    @park = Park.find(params[:park_id])
+    @games = @park.games.where(active:"pending")
     render json: @games, status: 200
   end
 

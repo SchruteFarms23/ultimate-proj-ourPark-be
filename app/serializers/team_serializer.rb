@@ -1,6 +1,6 @@
 class TeamSerializer < ActiveModel::Serializer
   attributes :id, :game_id
-  has_many :players
+  has_many :users
   belongs_to :game
-  has_many :stats, through: :players
+  has_many :stats, through: :users
 end
