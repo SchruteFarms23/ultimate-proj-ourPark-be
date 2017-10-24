@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post '/games/create', to: 'games#create'
   post '/games/active', to: 'games#active_games'
   post '/games/pending', to: 'games#pending_games'
+  post '/games/change', to: 'games#change_to_active'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -14,6 +14,13 @@ class GamesController < ApplicationController
     render json: @games, status: 200
   end
 
+  def change_to_active
+    @game = Game.find(params[:game_id])
+    @game.active = "active"
+    @game.save
+    render json: @game, status:200
+  end
+
   def create
     @game = Game.new
     @park = Park.find(params[:park_id])
@@ -26,7 +33,7 @@ class GamesController < ApplicationController
       @team_two.game =@game
       @team_one.save
       @team_two.save
-    render json: {game:@game, team_one:@team_one, team_two:@team_two}
+    render json: @game, status: 201
     end
   end
 
