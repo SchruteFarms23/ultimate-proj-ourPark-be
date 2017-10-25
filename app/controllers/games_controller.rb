@@ -1,6 +1,10 @@
 class GamesController < ApplicationController
   skip_before_action :authorized
 
+  def show
+    @game = Game.find(params[:id])
+    render json: @game, status: 200
+  end
 
   def active_games
     @park = Park.find(params[:park_id])
@@ -43,10 +47,6 @@ class GamesController < ApplicationController
 
   end
 
-  def show
-    @game = Game.find(params[:id ])
-    render json:{game: @game}, status:200
-  end
 
   def destroy
     @park = Park.find(params[:park_id])

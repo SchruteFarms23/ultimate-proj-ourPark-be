@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post '/login', to: 'auth#create'
 
   post '/games/create', to: 'games#create'
+  resources :games, :only => [:show]
   post '/games/active', to: 'games#active_games'
   post '/games/pending', to: 'games#pending_games'
   post '/games/change', to: 'games#change_to_active'
