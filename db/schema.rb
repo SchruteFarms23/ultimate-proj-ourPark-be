@@ -36,11 +36,12 @@ ActiveRecord::Schema.define(version: 20171020031606) do
   end
 
   create_table "stats", force: :cascade do |t|
-    t.integer "points"
-    t.integer "assists"
-    t.integer "rebounds"
-    t.integer "blocks"
-    t.integer "steals"
+    t.integer "points", default: 0
+    t.integer "assists", default: 0
+    t.integer "rebounds", default: 0
+    t.integer "blocks", default: 0
+    t.integer "steals", default: 0
+    t.integer "threes", default: 0
     t.integer "user_id"
     t.integer "game_id"
     t.datetime "created_at", null: false
@@ -49,6 +50,7 @@ ActiveRecord::Schema.define(version: 20171020031606) do
 
   create_table "teams", force: :cascade do |t|
     t.integer "game_id"
+    t.integer "points", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -10,4 +10,10 @@ class AuthController < ApplicationController
       render json: {message: "Cant find user"}
     end
   end
+
+  def get_user
+    @user = current_user
+    render json: @user, status:200
+  end
+
 end

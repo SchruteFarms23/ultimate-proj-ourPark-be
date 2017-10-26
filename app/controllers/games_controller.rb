@@ -22,6 +22,9 @@ class GamesController < ApplicationController
     @game = Game.find(params[:game_id])
     @game.active = "active"
     @game.save
+    @game.users.each do |user|
+      Stat.create(user_id:user.id, game_id:params[:game_id])
+    end
     render json: @game, status:200
   end
 
