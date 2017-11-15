@@ -5,7 +5,8 @@ class AuthController < ApplicationController
     @user= User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
       token = encode_token({user_id: @user.id})
-      render json: {user:@user, jwt:token}
+      render json: {user: ActiveModel::Serializer::UserSerializer.new(@user, each_serializer: UserSerializer),
+        jwt:token}, status:200
     else
       render json: {message: "Cant find user"}
     end
@@ -13,7 +14,7 @@ class AuthController < ApplicationController
 
   def get_user
     @user = current_user
-    render json: @user, status:200
+    render json: ActiveModel::Serializer::UserSerializer.new(@user, each_serializer: UserSerializer), status:200
   end
 
 end

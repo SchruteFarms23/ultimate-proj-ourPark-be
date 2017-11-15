@@ -25,13 +25,14 @@ class UsersController < ApplicationController
   end
 
   def update
+    # byebug
     @user = User.find(params[:user_id])
     @park = Park.find(params[:park_id])
     if !@user.park
       @park.users << @user
-      render json: {user: @user}, status:200
+      render json: {user: ActiveModel::Serializer::UserSerializer.new(@user, each_serializer: UserSerializer)}, status:200
     else
-      render json: {user: @user, errors: "Yo my dude you already at a park who you tryna fool fam"}
+      render json: {user: @user, errors: "You already belong to a park"}
     end
   end
 
@@ -39,8 +40,8 @@ class UsersController < ApplicationController
     user = User.find(params[:user_id])
     park = Park.find(params[:park_id])
     park.users.delete(user)
-    user= User.find(params[:user_id])
-    render json: {user:user}, status:200
+    @user= User.find(params[:user_id])
+    render json: {user:ActiveModel::Serializer::UserSerializer.new(@user, each_serializer: UserSerializer)}, status:200
 end
   # private
   #
