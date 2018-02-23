@@ -4,6 +4,4 @@ class User < ApplicationRecord
   has_many :stats
   belongs_to :team, optional:true
   delegate :game, :to => :team
-  # has_many :games, through: :teams
-
 end

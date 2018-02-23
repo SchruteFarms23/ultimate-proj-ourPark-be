@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       token = encode_token({user_id: @user.id})
       render json: {user:@user, jwt: token}, status:200
     else
-      render json: {message:"Wrong Password or email"}
+      render json: {message:"Make sure user has an email, password, and name."}
     end
   end
 
